@@ -1,11 +1,28 @@
+<div class="max-w-7xl mt-24 sm:mt-32">
+<div class="flex flex-col">
+  <h1 class="text-7xl text-indigo-600 font-bold">From the community</h1>
+  <p class="text-2xl text-neutral-500 mt-4">
+    Check out the latest articles from our blog below. 
 
-<h1>Articles</h1>
+    <span class="block">
+      Created <%= time_ago_in_words(Time.now) %> ago.
+    </span>
+  </p>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= article.title %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="mt-10">
+    <% @articles.each do |article| %>
+      <li class="text-2xl font-semibold text-neutral-600">
+        <%= link_to article.title, article %>
+      </li>
+      <li class="text-lg text-neutral-500">
+        <%= article.body %>
+      </li>
+
+    <% end %>
+  </ul>
+
+  <div class="mt-10">
+    <%= link_to "Create a New Article ->", new_article_path, class: "text-lg text-neutral-950" %>
+  </div>
+</div>
 

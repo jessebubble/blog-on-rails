@@ -65,3 +65,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Tailwind CSS is a utility-first CSS framework [https://tailwindcss.com]
+gem "tailwindcss-rails", "~> 2.0" 
+
+
+
+
