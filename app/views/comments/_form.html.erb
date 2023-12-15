@@ -1,0 +1,18 @@
+
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+    <p class="text-xl text-neutral-500 mt-2">
+        <%= form.label :commenter, class: "text-2xl" %>
+        <%= form.text_field :commenter, class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
+    </p>
+    <p class="text-xl text-neutral-500 mt-2">
+        <%= form.label :body, class: "text-2xl" %>
+        <%= form.text_area :body, class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
+    </p>
+    <p class="text-xl text-neutral-500 mt-2">
+        <%= form.label :status, class: "text-2xl" %>
+        <%= form.select :status, Visible::VALID_STATUSES, selected: 'public', class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
+    </p>
+    <p class="mt-4">
+        <%= form.submit "Add comment", class: "bg-indigo-500 rounded-xl p-2 text-xl text-white hover:text-neutral-600" %>
+    </p>
+<% end %> 

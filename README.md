@@ -1,6 +1,25 @@
 # Blog on Rails 
 This is the blog application from
-[*Getting Started with Rails*](http://guides.rubyonrails.org/getting_started.html)
+[*Getting Started with Rails*](http://guides.rubyonrails.org/getting_started.html) with some minor modifications, **`TailwindCSS`**. It is a simple blog application that allows users to create, edit, and delete articles.The application is built using **Ruby on Rails**, a popular web application framework written in the Ruby programming language. It follows the **Model-View-Controller (MVC)** architectural pattern and uses **Active Record** as the **Object-Relational Mapping (ORM)** system. It also uses **Embedded Ruby (ERB)** as the templating language for generating dynamic content in views.
+
+## Table of Contents
+My personal breakdown of concepts and topics covered in the [Getting Started with Rails](http://guides.rubyonrails.org/getting_started.html) guide. This is a great resource for learning the basics of **Ruby on Rails**. I highly recommend it for anyone who is new to the framework.
+- [Introducing Ruby](#introducing-ruby)
+- [Introducing rbenv](#introducing-rbenv)
+- [Introducing gems](#introducing-gems)
+- [Introducing Rails](#introducing-rails)
+- [The Rails directory](#the-rails-directory)
+- [Starting up the Web Server](#starting-up-the-web-server)
+- [Introducing puma](#introducing-puma)
+- [MVC](#mvc)
+    - [Models on Rails](#models-on-rails)
+    - [Views on Rails](#views-on-rails)
+    - [Controllers on Rails](#controllers-on-rails)
+- [Introducing Active Record](#introducing-active-record)
+- [Introducing irb (Interactive Ruby)](#introducing-irb-interactive-ruby)
+- [Introducing ERB (Embedded Ruby)](#introducing-erb-embedded-ruby)
+- [Introducing Form Builder](#introducing-form-builder)
+- [Introducing Strong Parameters](#introducing-strong-parameters)
 
 ## Introducing Ruby
 **Ruby** is a dynamic, open source programming language developed by Yukihiro "Matz" Matsumoto in the mid-1990s. Ruby's combination of expressiveness, simplicity, and flexibility has made it a popular choice for both beginners and experienced developers. It's used for a wide range of applications, from web development with Ruby on Rails to scripting and automation. The language continues to evolve with new features and improvements while maintaining its core principles.
