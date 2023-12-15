@@ -7,23 +7,5 @@
         </p>
     </div>
 
-    <div class="mt-16
-        <%= form_with model: @article do |form| %>
-            <div class="mt-8">
-                <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2"  %> 
-                <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %> 
-            </div>
-            <div class="mt-8">
-                <%= form.label :body, class: "block text-gray-700 text-sm font-bold mb-2" %> 
-                <%= form.text_area :body, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %> 
-            </div>
-            <div class="mt-8">
-                <%= form.submit "Create Article", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %> 
-            </div>
-        <% end %>
-    </div>
-
-    <div class="mt-4">
-        <%= link_to "Back to Articles ->", articles_path, class: "text-lg text-neutral-950" %>
-    </div>
+    <%= render "form", article: @article %>
 </div>

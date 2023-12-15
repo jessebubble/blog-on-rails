@@ -1,7 +1,7 @@
-<div class="max-w-7xl mt-24 sm:mt-32">
+<div class="max-w-3xl">
 <div class="flex flex-col">
   <h1 class="text-7xl text-indigo-600 font-bold">From the community</h1>
-  <p class="text-2xl text-neutral-500 mt-4">
+  <p class="text-2xl text-neutral-500 mt-2">
     Check out the latest articles from our blog below. 
 
     <span class="block">
@@ -9,20 +9,16 @@
     </span>
   </p>
 
-  <ul class="mt-10">
+  <section class="mt-8 flex items-center justify-start flex-wrap gap-6">
     <% @articles.each do |article| %>
-      <li class="text-2xl font-semibold text-neutral-600">
+      <div class="text-2xl font-semibold text-neutral-600 border border-neutral-950 rounded-xl py-2 px-2 bg-neutral-100 ">
         <%= link_to article.title, article %>
-      </li>
-      <li class="text-lg text-neutral-500">
-        <%= article.body %>
-      </li>
-
+      </div>
     <% end %>
-  </ul>
+  </section>
 
   <div class="mt-10">
-    <%= link_to "Create a New Article ->", new_article_path, class: "text-lg text-neutral-950" %>
+    <%= link_to "Create a new article ->", new_article_path, class: "text-lg text-neutral-950 font-semibold" %>
   </div>
 </div>
 

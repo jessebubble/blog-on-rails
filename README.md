@@ -307,3 +307,96 @@ Ruby on Rails primarily uses **ERB (Embedded RuBy)** as its default templating s
 <h1> Hello, <%= @user.name %>! </h1>
 <%= render partial: "footer" %>
 ```
+
+## Introducing Form Builder 
+**Form Builder** in Ruby on Rails is a powerful tool for generating HTML forms. It simplifies the process of creating form elements, handling form submissions, and displaying validation errors. Form builders are closely tied to **models**, making it convenient to work with model-backed forms. The **`form_for` helper**, combined with form builders, provides a clean and efficient way to create dynamic and interactive forms in Rails applications.
+
+```erb
+<!-- Basic form -->
+<!-- The form_for helper generates a form that is backed by a model -->
+<!-- The form builder provides methods for generating form elements like text fields, text areas, checkboxes, radio buttons, and select boxes -->
+
+<!-- app/views/users/new.html.erb -->
+<%= form_for @user do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.submit %>
+<% end %>
+```
+
+```erb
+<!-- Form with nested attributes -->
+<!-- Form builders can be used to generate forms with nested attributes -->
+<!-- Nested attributes allow you to save associated records from a single form -->
+
+<!-- app/views/users/new.html.erb -->
+<%= form_for @user do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.fields_for :posts do |post_form| %>
+        <%= post_form.label :title %>
+        <%= post_form.text_field :title %>
+    <% end %>
+    <%= form.submit %>
+<% end %>
+```
+
+```erb
+<!-- Form with validation errors -->
+<!-- Form builders can be used to display validation errors -->
+<!-- Validation errors are displayed using the error_messages_for helper -->
+
+<!-- app/views/users/new.html.erb -->
+<%= form_for @user do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.submit %>
+    <%= error_messages_for @user %>
+<% end %>
+
+<!-- app/helpers/application_helper.rb -->
+module ApplicationHelper
+    def error_messages_for(object)
+        render partial: "shared/error_messages", locals: { object: object }
+    end
+end
+
+<!-- app/views/shared/_error_messages.html.erb -->
+<% if object.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(object.errors.count, "error") %> prohibited this <%= object.class.name.downcase %> from being saved:</h2>
+        <ul>
+            <% object.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+```
+
+## Introducing Strong Parameters
+**Strong Parameters** in Ruby on Rails provides a mechanism for whitelisting parameters that are allowed for mass assignment. It helps prevent mass assignment vulnerabilities by requiring explicit definition of permitted parameters in controllers. This is a crucial security feature to ensure that only intended attributes are allowed to be modified through user input.
+
+```ruby
+# Strong parameters
+# Strong parameters are defined using the permit method in controllers
+# The permit method takes a list of permitted attributes as arguments
+
+class UsersController < ApplicationController
+    def create
+        @user = User.new(user_params)
+        if @user.save
+            redirect_to @user
+        else
+            render "new"
+        end
+    end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:name, :email)
+    end
+end
+```
+
