@@ -1,33 +1,32 @@
 <div class="mt-16">
     <%= form_with model: article do |form| %>
         <div class="mt-8">
-            <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2"  %>
-            <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+            <%= form.label :title, class: "block text-sm font-medium leading-6 text-neutral-950"  %>
+            <%= form.text_field :title, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
             <% article.errors.full_messages_for(:title).each do |message| %>
-                <p class="text-red-500 text-xs mt-1">
+                <p class="mt-2 text-sm text-red-600">
                     <%= message %>
                 </p>
             <% end %>
         </div>
         <div class="mt-8">
-            <%= form.label :body, class: "block text-gray-700 text-sm font-bold mb-2" %>
-            <%= form.text_area :body, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+            <%= form.label :body, class: "block text-sm font-medium leading-6 text-neutral-950" %>
+            <%= form.text_area :body, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
             <% article.errors.full_messages_for(:body).each do |message| %>
-                <p class="text-red-500 text-xs mt-1">
+                <p class="mt-2 text-sm text-red-600">
                     <%= message %>
                 </p>
             <% end %>
         </div>
         <div class="mt-8">
-            <%= form.label :status, class: "block text-gray-700 text-sm font-bold mb-2" %>
-            <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+            <%= form.label :status, class: "block text-sm font-medium leading-6 text-neutral-950" %>
+            <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public', class: "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
         </div>
-        <div class="mt-8">
-            <%= form.submit "Create Article", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+
+        <div class="flex items-center justify-end gap-x-6">
+            <%= link_to "Back to Articles", articles_path, class: "text-sm font-semibold leading-6 text-neutral-950" %>
+            <%= form.submit "Create Article", class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
         </div>
     <% end %>
 
-    <div class="mt-4">
-        <%= link_to "Back to Articles ->", articles_path, class: "text-lg text-neutral-950 font-semibold" %>
-    </div>
 </div>

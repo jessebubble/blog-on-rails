@@ -1,18 +1,23 @@
-
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p class="text-xl text-neutral-500 mt-2">
-        <%= form.label :commenter, class: "text-2xl" %>
-        <%= form.text_field :commenter, class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
-    </p>
-    <p class="text-xl text-neutral-500 mt-2">
-        <%= form.label :body, class: "text-2xl" %>
-        <%= form.text_area :body, class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
-    </p>
-    <p class="text-xl text-neutral-500 mt-2">
-        <%= form.label :status, class: "text-2xl" %>
-        <%= form.select :status, Visible::VALID_STATUSES, selected: 'public', class: "block w-full rounded-xl p-2 text-xl text-neutral-950 mt-2" %>
-    </p>
-    <p class="mt-4">
-        <%= form.submit "Add comment", class: "bg-indigo-500 rounded-xl p-2 text-xl text-white hover:text-neutral-600" %>
-    </p>
-<% end %> 
+<div class="mt-16">
+    <h2 class="text-lg font-semibold leading-6 text-neutral-950">
+        Share your thoughts
+    </h2>
+    <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+        <div class="mt-4">
+            <%= form.label :commenter, class: "block text-sm font-medium leading-6 text-neutral-950" %>
+            <%= form.text_field :commenter, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="mt-8">
+            <%= form.label :body, class: "block text-sm font-medium leading-6 text-neutral-950" %>
+            <%= form.text_area :body, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="mt-8">
+            <%= form.label :status, class: "block text-sm font-medium leading-6 text-neutral-950" %>
+            <%= form.select :status, Visible::VALID_STATUSES, selected: 'public', class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="flex items-center justify-end gap-x-6">
+            <%= link_to "Back to Articles", articles_path, class: "text-sm font-semibold leading-6 text-neutral-950" %>
+            <%= form.submit "Add comment", class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+        </div>
+    <% end %> 
+</div>

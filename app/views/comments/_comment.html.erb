@@ -1,18 +1,19 @@
 <% unless comment.archived? %>
-  <p class="text-md text-neutral-500 mt-2">
-    <strong class="">Commenter:</strong>
+  <p class="font-semibold text-neutral-950">
     <%= comment.commenter %>
   </p>
 
-  <p class="text-md text-neutral-500 mt-2">
-    <strong class="">Comment:</strong>
+  <p class="text-neutral-600">
     <%= comment.body %>
   </p>
 
   <div class="">
-    <%= link_to "Delete Comment", [comment.article, comment], class: "text-red-600 font-semibold text-md", data: {
+    <%= link_to "Delete Comment", [comment.article, comment], class: "text-red-600 font-semibold", data: {
       turbo_method: :delete,
       turbo_confirm: "Are you sure?"
     } %>
   </div>
+
+  <hr class="my-4 border-neutral-950/10" />
+  
 <% end %>

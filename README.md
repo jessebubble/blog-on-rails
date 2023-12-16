@@ -419,3 +419,10 @@ class UsersController < ApplicationController
 end
 ```
 
+## Introducing HTTP on Rails 
+ **`http_basic_authenticate_with`** is a method in Rails that simplifies the implementation of *HTTP Basic Authentication* for controller actions. It provides a quick way to add a basic layer of authentication to certain parts of your application, particularly for scenarios where a full-fledged user authentication system may be unnecessary.
+
+### How does it work?
+When a user tries to access an action protected by HTTP Basic Authentication, the browser prompts the user for a username and password.
+Rails decodes the provided credentials and compares them against the specified name and password. If the credentials match, the user is granted access to the action; otherwise, access is denied.
+
