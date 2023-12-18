@@ -20,6 +20,9 @@ My personal breakdown of concepts and topics covered in the [Getting Started wit
 - [Introducing ERB (Embedded Ruby)](#introducing-erb-embedded-ruby)
 - [Introducing Form Builder](#introducing-form-builder)
 - [Introducing Strong Parameters](#introducing-strong-parameters)
+- [Introducing HTTP on Rails](#introducing-http-on-rails)
+- [Introducing psych](#introducing-psych)
+- [Introducing Fly.io](#introducing-flyio)
 
 ## Introducing Ruby
 **Ruby** is a dynamic, open source programming language developed by Yukihiro "Matz" Matsumoto in the mid-1990s. Ruby's combination of expressiveness, simplicity, and flexibility has made it a popular choice for both beginners and experienced developers. It's used for a wide range of applications, from web development with Ruby on Rails to scripting and automation. The language continues to evolve with new features and improvements while maintaining its core principles.
@@ -426,3 +429,8 @@ end
 When a user tries to access an action protected by HTTP Basic Authentication, the browser prompts the user for a username and password.
 Rails decodes the provided credentials and compares them against the specified name and password. If the credentials match, the user is granted access to the action; otherwise, access is denied.
 
+## Introducing psych
+the `**psych**` gem is a YAML parser and emitter that is integral to Ruby and, consequently, to Ruby on Rails. It plays a crucial role in handling YAML configurations, parsing YAML front matter in views, and providing secure and efficient YAML processing capabilities for various aspects of Rails applications.
+
+## Introducing Fly.io
+**Fly.io** is a great place to run Rails applications, especially if you plan on running them on multiple servers around the world so your users have a fast, snappy, low-latency experience. Fly provides a simple and efficient way to deploy and scale applications across multiple regions and is a great choice for deploying Ruby on Rails applications because it provides a seamless experience for deploying and managing applications with minimal configuration.
