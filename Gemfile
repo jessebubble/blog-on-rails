@@ -69,6 +69,8 @@ end
 # Tailwind CSS is a utility-first CSS framework [https://tailwindcss.com]
 gem "tailwindcss-rails", "~> 2.0" 
 
+gem "dockerfile-rails", ">= 1.5", :group => :development
 
+gem "pg", "~> 1.5"
 
-
+gem 'psych', '~> 2.0', '>= 2.0.17'
